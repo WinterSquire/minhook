@@ -659,7 +659,7 @@ MH_STATUS WINAPI MH_CreateHook(LPVOID pTarget, LPVOID pDetour, LPVOID *ppOrigina
 }
 
 //-------------------------------------------------------------------------
-MH_STATUS WINAPI MH_RemoveHook(LPVOID pTarget)
+MH_STATUS WINAPI MH_RemoveHook(LPVOID pTarget, int force)
 {
     MH_STATUS status = MH_OK;
 
@@ -682,7 +682,7 @@ MH_STATUS WINAPI MH_RemoveHook(LPVOID pTarget)
                 }
             }
 
-            if (status == MH_OK)
+            if (status == MH_OK || force)
             {
                 FreeBuffer(g_hooks.pItems[pos].pTrampoline);
                 DeleteHookEntry(pos);

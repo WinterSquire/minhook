@@ -144,7 +144,8 @@ extern "C" {
     // Removes an already created hook.
     // Parameters:
     //   pTarget [in] A pointer to the target function.
-    MH_STATUS WINAPI MH_RemoveHook(LPVOID pTarget);
+    //   force [in] Force to remove hook
+    MH_STATUS WINAPI MH_RemoveHook(LPVOID pTarget, int force);
 
     // Enables an already created hook.
     // Parameters:
